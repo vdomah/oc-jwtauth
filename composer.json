@@ -1,0 +1,19 @@
+{
+  "name": "vdomah/jwtauth-plugin",
+  "type": "october-plugin",
+  "description": "JWTAuth plugin for October CMS wich provides token based authentication",
+  "keywords": ["october", "octobercms", "auth", "api", "token"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Artem Rybachuk",
+      "email": "alchemistt@ukr.net",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=5.5.9",
+    "tymon/jwt-auth": "0.5.*"
+  },
+  "minimum-stability": "dev"
+}
