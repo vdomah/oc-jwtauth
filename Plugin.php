@@ -21,7 +21,7 @@ class Plugin extends PluginBase
 
     public function boot()
     {
-        App::register('\Tymon\JWTAuth\Providers\JWTAuthServiceProvider');
+        App::register('\Vdomah\JWTAuth\Classes\JWTAuthServiceProvider');
 
         $facade = AliasLoader::getInstance();
         $facade->alias('JWTAuth', '\Tymon\JWTAuth\Facades\JWTAuth');

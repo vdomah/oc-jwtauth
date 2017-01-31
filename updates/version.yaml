@@ -1,2 +1,4 @@
 1.0.0:
     - Initialize plugin.
+1.0.1:
+    - Custom service provider and config file added.
