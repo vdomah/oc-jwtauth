@@ -2,9 +2,23 @@
 
 JSON Web Token Authentication for your OctoberCMS API integrated with RainLab.User
 
+This plugin provides token based authentication to your application. Is based on the awesome package [JSON Web Token Authentication for Laravel & Lumen](https://github.com/tymondesigns/jwt-auth) by Sean Tymon.
+
 ### Requirements
 
 RainLab.User plugin
+
+### Installation
+
+After plugin installation you need to create {root}/config/auth.php file with the following content, otherwise you'll got an error:
+
+```
+<?php
+return [
+    'driver' => 'database',
+    'table' => 'users',
+];
+```
 
 ### Endpoints 
 
