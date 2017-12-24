@@ -6,3 +6,5 @@
     - Compability with OctoberCMS builds > 419 (Laravel 5.5)
 1.0.3:
     - README.md updated
+1.0.4:
+    - Ability to define own set of user attributes in response.

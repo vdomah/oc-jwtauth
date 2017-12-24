@@ -44,3 +44,17 @@ Route::post('test', function (\Request $request) {
 ```
 
 Then when making the request set the header "Authorization" to "Bearer `{yourToken}`"
+
+### How to define own set of user attributes in response?
+
+For sign up and sign in add corresponding methods getAuthApiSignupAttributes or/and getAuthApiSigninAttributes to User model by extending it in your plugin's boot method:
+
+```
+    User::extend(function($model) {
+        $model->addDynamicMethod('getAuthApiSignupAttributes', function () use ($model) {
+            return [
+                'my-attr' => $model->my_attr,
+            ];
+        });
+    });
+```

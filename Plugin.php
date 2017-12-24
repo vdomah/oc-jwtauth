@@ -1,5 +1,6 @@
 <?php namespace Vdomah\JWTAuth;
 
+use RainLab\User\Models\User;
 use System\Classes\PluginBase;
 use App;
 use Illuminate\Foundation\AliasLoader;
@@ -37,5 +38,11 @@ class Plugin extends PluginBase
 
         $this->app['router']->middleware('jwt.auth', '\Tymon\JWTAuth\Middleware\GetUserFromToken');
         $this->app['router']->middleware('jwt.refresh', '\Tymon\JWTAuth\Middleware\RefreshToken');
+
+        User::extend(function($model) {
+            $model->addDynamicMethod('getAuthApiAttributes', function () {
+                return [];
+            });
+        });
     }
 }
