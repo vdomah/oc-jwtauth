@@ -10,15 +10,7 @@ RainLab.User plugin
 
 ### Installation
 
-After plugin installation you need to create {root}/config/auth.php file with the following content, otherwise you'll got an error:
-
-```
-<?php
-return [
-    'driver' => 'database',
-    'table' => 'users',
-];
-```
+After plugin installation you need to copy /plugins/vdomah/jwtauth/config/auth.php to {root}/config/auth.php, otherwise you'll got an error.
 
 ### Endpoints 
 
