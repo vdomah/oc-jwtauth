@@ -4,3 +4,5 @@
     - Custom service provider and config file added.
 1.0.2:
     - Compability with OctoberCMS builds > 419 (Laravel 5.5)
+1.0.3:
+    - README.md updated
