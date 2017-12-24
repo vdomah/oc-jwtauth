@@ -21,6 +21,10 @@ class Plugin extends PluginBase
 
     public function boot()
     {
+        $this->app->bind(\Illuminate\Auth\AuthManager::class, function($app){
+            return new \Illuminate\Auth\AuthManager($app);
+        });
+
         App::register('\Vdomah\JWTAuth\Classes\JWTAuthServiceProvider');
 
         $facade = AliasLoader::getInstance();
