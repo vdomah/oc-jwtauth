@@ -8,7 +8,7 @@ use Illuminate\Foundation\AliasLoader;
 class Plugin extends PluginBase
 {
     /**
-     * @var array   Require the RainLab.Blog plugin
+     * @var array   Require the RainLab.User plugin
      */
     public $require = ['RainLab.User'];
 
