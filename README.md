@@ -34,13 +34,13 @@ Expects 1 parameter: token. Tries to invalidate the given token - this can be us
 
 ### How to use this in another plugin?
 
-Simply add `->middleware('jwt.auth')` to the end of the route in the plugin's routes.php
+Simply add `->middleware('\Tymon\JWTAuth\Middleware\GetUserFromToken')` to the end of the route in the plugin's routes.php
 
 eg: 
 ```
 Route::post('test', function (\Request $request) {
    return response()->json(('The test was successful'));
-})->middleware('jwt.auth');
+})->middleware('\Tymon\JWTAuth\Middleware\GetUserFromToken');
 ```
 
 Then when making the request set the header "Authorization" to "Bearer `{yourToken}`"

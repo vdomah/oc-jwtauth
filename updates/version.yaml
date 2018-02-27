@@ -10,3 +10,5 @@
     - Ability to define own set of user attributes in response.
 1.0.5:
     - /refresh and /invalidate endpoints back.
+1.0.6:
+    - Update README about creating route in another plugin.
