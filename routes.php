@@ -4,7 +4,7 @@ use RainLab\User\Models\User as UserModel;
 
 Route::group(['prefix' => 'api'], function() {
 
-    Route::post('login', function (\Request $request) {
+    Route::post('login', function (Request $request) {
         $credentials = [
             'email' => Request::get('email'),
             'password' => Request::get('password'),
@@ -36,6 +36,38 @@ Route::group(['prefix' => 'api'], function() {
         }
         // if no errors are encountered we can return a JWT
         return response()->json(compact('token', 'user'));
+    });
+
+    Route::post('refresh', function (Request $request) {
+        $token = Request::get('token');
+
+        try {
+            // attempt to refresh the JWT
+            if (!$token = JWTAuth::refresh($token)) {
+                return response()->json(['error' => 'could_not_refresh_token'], 401);
+            }
+        } catch (Exception $e) {
+            // something went wrong
+            return response()->json(['error' => 'could_not_refresh_token'], 500);
+        }
+
+        // if no errors are encountered we can return a new JWT
+        return response()->json(compact('token'));
+    });
+
+    Route::post('invalidate', function (Request $request) {
+        $token = Request::get('token');
+
+        try {
+            // invalidate the token
+            JWTAuth::invalidate($token);
+        } catch (Exception $e) {
+            // something went wrong
+            return response()->json(['error' => 'could_not_invalidate_token'], 500);
+        }
+
+        // if no errors we can return a message to indicate that the token was invalidated
+        return response()->json('token_invalidated');
     });
 
     Route::post('/signup', function () {

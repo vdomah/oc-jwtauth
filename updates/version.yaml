@@ -8,3 +8,5 @@
     - README.md updated
 1.0.4:
     - Ability to define own set of user attributes in response.
+1.0.5:
+    - /refresh and /invalidate endpoints back.
