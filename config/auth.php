@@ -59,7 +59,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => Vdomah\JWTAuth\Models\User::class,
+            'model' => RainLab\User\Models\User::class,
         ],
     ],
     /*

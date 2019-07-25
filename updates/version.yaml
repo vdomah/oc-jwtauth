@@ -12,3 +12,5 @@
     - /refresh and /invalidate endpoints back.
 1.0.6:
     - Update README about creating route in another plugin.
+1.0.7:
+    - Compability with OctoberCMS builds > 454 (Authenticatable trait removed)
