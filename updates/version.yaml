@@ -16,3 +16,5 @@
     - Compability with OctoberCMS builds > 454 (Authenticatable trait removed)
 1.0.8:
     - JWT Authentication Secret default value removed from config file. README updated about how to generate the secret.
+1.0.9:
+    - !!! Generate JWT Authentication Secret using php artisan jwt:generate and assign generated value to JWT_SECRET in .env
