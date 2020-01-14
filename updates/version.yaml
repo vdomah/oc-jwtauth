@@ -14,3 +14,5 @@
     - Update README about creating route in another plugin.
 1.0.7:
     - Compability with OctoberCMS builds > 454 (Authenticatable trait removed)
+1.0.8:
+    - JWT Authentication Secret default value removed from config file. README updated about how to generate the secret.
