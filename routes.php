@@ -1,14 +1,13 @@
 <?php
 
 use RainLab\User\Models\User as UserModel;
+use Vdomah\JWTAuth\Models\Settings;
 
 Route::group(['prefix' => 'api'], function() {
 
-    Route::post('login', function (Request $request) {
-        $credentials = [
-            'email' => Request::get('email'),
-            'password' => Request::get('password'),
-        ];
+    Route::any('login', function (Request $request) {
+        $login_fields = Settings::get('login_fields', ['email', 'password']);
+        $credentials = $request->only($login_fields);
 
         try {
             // verify the credentials and create a token for the user
@@ -70,8 +69,9 @@ Route::group(['prefix' => 'api'], function() {
         return response()->json('token_invalidated');
     });
 
-    Route::post('/signup', function () {
-        $credentials = Input::only('email', 'password', 'password_confirmation');
+    Route::post('/signup', function (Request $request) {
+        $login_fields = Settings::get('signup_fields', ['email', 'password', 'password_confirmation']);
+        $credentials = $request->only($login_fields);
 
         try {
             $userModel = UserModel::create($credentials);

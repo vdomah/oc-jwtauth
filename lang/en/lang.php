@@ -5,7 +5,12 @@
     ],
     'fields' => [
         'secret' => 'Secret Key',
+        'secret_comment' => 'Overrides JWT_SECRET from .env',
         'btn_generate' => 'Generate Secret Key',
+        'signup_fields' => 'Signup Fields',
+        'signup_fields_comment' => 'Defaults are email, password, password_confirmation',
+        'login_fields' => 'Login Fields',
+        'login_fields_comment' => 'Defaults are email, password',
     ],
     'settings' => [
         'page_name' => 'JWTauth settings',

@@ -2,8 +2,22 @@ fields:
   secret:
     label: 'vdomah.jwtauth::lang.fields.secret'
     span: auto
+    comment: 'vdomah.jwtauth::lang.fields.secret_comment'
   btn_generate:
     label: 'vdomah.jwtauth::lang.fields.btn_generate'
     span: auto
     type: partial
     path: $/vdomah/jwtauth/views/_btn_generate.htm
+
+  signup_fields:
+    label: 'vdomah.jwtauth::lang.fields.signup_fields'
+    span: auto
+    type: taglist
+    mode: array
+    comment: 'vdomah.jwtauth::lang.fields.signup_fields_comment'
+  login_fields:
+    label: 'vdomah.jwtauth::lang.fields.login_fields'
+    span: auto
+    type: taglist
+    mode: array
+    comment: 'vdomah.jwtauth::lang.fields.login_fields_comment'
