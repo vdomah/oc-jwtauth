@@ -4,6 +4,7 @@ use RainLab\User\Models\User;
 use System\Classes\PluginBase;
 use App;
 use Illuminate\Foundation\AliasLoader;
+use Vdomah\JWTAuth\Models\Settings;
 
 class Plugin extends PluginBase
 {
@@ -18,6 +19,18 @@ class Plugin extends PluginBase
 
     public function registerSettings()
     {
+        return [
+            'settings' => [
+                'label'       => 'vdomah.jwtauth::lang.settings.page_name',
+                'description' => 'vdomah.jwtauth::lang.settings.page_desc',
+                'category'    => 'vdomah.jwtauth::lang.plugin.name',
+                'icon'        => 'oc-icon-key',
+                'class'       => Settings::class,
+                'order'       => 500,
+                'keywords'    => 'jwt jwtauth',
+                'permissions' => ['vdomah.jwtauth.settings']
+            ]
+        ];
     }
 
     public function boot()

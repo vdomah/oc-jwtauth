@@ -33,7 +33,7 @@ return [
     |
     */
 
-    'ttl' => 60,
+    'ttl' => env('JWT_TTL', 60),
 
     /*
     |--------------------------------------------------------------------------
@@ -47,7 +47,7 @@ return [
     |
     */
 
-    'refresh_ttl' => 20160,
+    'refresh_ttl' => env('JWT_REFRESH_TTL', 20160),
 
     /*
     |--------------------------------------------------------------------------
@@ -61,7 +61,7 @@ return [
     |
     */
 
-    'algo' => 'HS256',
+    'algo' => env('JWT_ALGO', 'HS256'),
 
     /*
     |--------------------------------------------------------------------------
@@ -73,7 +73,7 @@ return [
     |
     */
 
-    'user' => 'RainLab\User\Models\User',
+    'user' => env('JWT_USER_CLASS', 'RainLab\User\Models\User'),
 
     /*
     |--------------------------------------------------------------------------
@@ -85,7 +85,7 @@ return [
     |
     */
 
-    'identifier' => 'id',
+    'identifier' => env('JWT_IDENTIFIER', 'id'),
 
     /*
     |--------------------------------------------------------------------------
@@ -133,7 +133,7 @@ return [
         |
         */
 
-        'user' => 'Tymon\JWTAuth\Providers\User\EloquentUserAdapter',
+        'user' => env('JWT_PROVIDERS_USER', 'Tymon\JWTAuth\Providers\User\EloquentUserAdapter'),
 
         /*
         |--------------------------------------------------------------------------
@@ -144,7 +144,7 @@ return [
         |
         */
 
-        'jwt' => 'Tymon\JWTAuth\Providers\JWT\NamshiAdapter',
+        'jwt' => env('JWT_PROVIDERS_JWT', 'Tymon\JWTAuth\Providers\JWT\NamshiAdapter'),
 
         /*
         |--------------------------------------------------------------------------
@@ -155,7 +155,7 @@ return [
         |
         */
 
-        'auth' => 'Tymon\JWTAuth\Providers\Auth\IlluminateAuthAdapter',
+        'auth' => env('JWT_PROVIDERS_AUTH', 'Tymon\JWTAuth\Providers\Auth\IlluminateAuthAdapter'),
 
         /*
         |--------------------------------------------------------------------------
@@ -166,7 +166,7 @@ return [
         |
         */
 
-        'storage' => 'Tymon\JWTAuth\Providers\Storage\IlluminateCacheAdapter',
+        'storage' => env('JWT_PROVIDERS_STORAGE', 'Tymon\JWTAuth\Providers\Storage\IlluminateCacheAdapter'),
 
     ],
 

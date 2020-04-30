@@ -1,0 +1,9 @@
+fields:
+  secret:
+    label: 'vdomah.jwtauth::lang.fields.secret'
+    span: auto
+  btn_generate:
+    label: 'vdomah.jwtauth::lang.fields.btn_generate'
+    span: auto
+    type: partial
+    path: $/vdomah/jwtauth/views/_btn_generate.htm

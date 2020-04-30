@@ -1,0 +1,21 @@
+<div>
+    <a
+            href="javascript:void(0);"
+            onclick="$('#Form-field-Settings-secret').val(makeid(32))"
+            data-request-data=""
+            class="btn btn-danger">
+        <?= e(trans('vdomah.jwtauth::lang.fields.btn_generate')) ?>
+    </a>
+</div>
+
+<script>
+    function makeid(length) {
+        var result           = '';
+        var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var charactersLength = characters.length;
+        for ( var i = 0; i < length; i++ ) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        return result;
+    }
+</script>

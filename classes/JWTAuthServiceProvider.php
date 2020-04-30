@@ -1,6 +1,7 @@
 <?php namespace Vdomah\JWTAuth\Classes;
 
 use Config;
+use Vdomah\JWTAuth\Models\Settings;
 
 class JWTAuthServiceProvider extends \Tymon\JWTAuth\Providers\JWTAuthServiceProvider
 {
@@ -13,7 +14,10 @@ class JWTAuthServiceProvider extends \Tymon\JWTAuth\Providers\JWTAuthServiceProv
      */
     protected function config($key, $default = null)
     {
-        $val = Config::get('vdomah.jwtauth::' . $key);
+        $val = Settings::get('secret');
+
+        if (!$val)
+            $val = Config::get('vdomah.jwtauth::' . $key);
 
         return $val ?: config("jwt.$key", $default);
     }

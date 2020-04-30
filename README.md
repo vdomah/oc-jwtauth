@@ -12,9 +12,14 @@ RainLab.User plugin
 
 1. After plugin installation you need to copy /plugins/vdomah/jwtauth/config/auth.php to {root}/config/auth.php, otherwise you'll got an error.
 
-2. Generate JWT Authentication Secret. it will be used to sign your tokens.
-A helper command is provided for this: `php artisan jwt:generate`.
-You need to assign the generated value to JWT_SECRET in your .env.
+2. Generate JWT Authentication Secret. It will be used to sign your tokens. You got 2 options:
+    - generate using command line: 
+        ````$xslt
+        php artisan jwt:generate
+        ````
+        You need to assign the generated value to JWT_SECRET in your .env.
+    - go to Backend > Settings > JWTauth settings and click Generate Secret Key and save. 
+    This value will override JWT_SECRET value from .env.
 
 ### Endpoints 
 
@@ -62,3 +67,19 @@ For sign up and sign in add corresponding methods getAuthApiSignupAttributes or/
         });
     });
 ```
+
+## .env options
+
+JWT_SECRET
+JWT_TTL
+JWT_REFRESH_TTL
+JWT_ALGO
+JWT_USER_CLASS
+JWT_IDENTIFIER
+JWT_BLACKLIST_ENABLED
+JWT_PROVIDERS_USER
+JWT_PROVIDERS_JWT
+JWT_PROVIDERS_AUTH
+JWT_PROVIDERS_STORAGE
+
+See config/config.php file for default values.
