@@ -21,3 +21,27 @@ fields:
     type: taglist
     mode: array
     comment: 'vdomah.jwtauth::lang.fields.login_fields_comment'
+
+  urls_section:
+    type: section
+    label: 'vdomah.jwtauth::lang.fields.urls_section'
+  url_prefix:
+    label: 'vdomah.jwtauth::lang.fields.url_prefix'
+    span: auto
+    default: 'api'
+  url_login:
+    label: 'vdomah.jwtauth::lang.fields.url_login'
+    span: auto
+    default: 'login'
+  url_signup:
+    label: 'vdomah.jwtauth::lang.fields.url_signup'
+    span: auto
+    default: 'signup'
+  url_refresh:
+    label: 'vdomah.jwtauth::lang.fields.url_refresh'
+    span: auto
+    default: 'refresh'
+  url_invalidate:
+    label: 'vdomah.jwtauth::lang.fields.url_invalidate'
+    span: auto
+    default: 'invalidate'
