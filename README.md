@@ -21,25 +21,50 @@ RainLab.User plugin
     - go to Backend > Settings > JWTauth settings and click Generate Secret Key and save. 
     This value will override JWT_SECRET value from .env.
 
-### Endpoints 
+## Endpoints 
 
-The plugin provides 2 endpoints: /api/login and /api/signup.
+The plugin provides 4 endpoints:
 
-/api/login
+- /api/login
 
-Expects 2 parameters to receive: email and password. Makes attempt to authenticate and returns token if succeeded. Also the basic user info is included in the response.
+    Makes attempt to authenticate and returns token if succeeded. Also the basic user info is included in the response.
+    By defult expects 2 parameters to receive: email and password. 
 
-/api/signup
+- /api/signup
 
-Expects 3 parameters to receive: email, password and password_confirmation. Tries to create a user and returns token if succeeded. The user info is included in the response.
+    Tries to create a user and returns token if succeeded. The user info is included in the response.
+    By default expects 3 parameters to receive: email, password and password_confirmation.
 
-/api/refresh
+- /api/refresh
 
-Expects 1 parameter: token. Tries to refresh the token and return the new token.
+    Tries to refresh the token and return the new token. 
+    By default expects 1 parameter: token.
 
-/api/invalidate
+- /api/invalidate
 
-Expects 1 parameter: token. Tries to invalidate the given token - this can be used as an extra precaution to log the user out
+    Tries to invalidate the given token - this can be used as an extra precaution to log the user out.
+    By default expects 1 parameter: token. 
+
+## .env options
+
+| Variable        | Default           |
+| ------------- |:-------------:|
+| JWT_SECRET      |  |
+| JWT_TTL      | 60      |
+| JWT_REFRESH_TTL | 20160 |
+| JWT_ALGO | HS256 |
+| JWT_USER_CLASS | RainLab\User\Models\User |
+| JWT_IDENTIFIER | id |
+| JWT_BLACKLIST_ENABLED | true |
+| JWT_PROVIDERS_USER | Tymon\JWTAuth\Providers\User\EloquentUserAdapter |
+| JWT_PROVIDERS_JWT | Tymon\JWTAuth\Providers\JWT\NamshiAdapter |
+| JWT_PROVIDERS_AUTH | Tymon\JWTAuth\Providers\Auth\IlluminateAuthAdapter |
+| JWT_PROVIDERS_STORAGE | Tymon\JWTAuth\Providers\Storage\IlluminateCacheAdapter |
+
+
+See config/config.php file for default values.
+
+## Extending
 
 ### How to use this in another plugin?
 
@@ -67,19 +92,3 @@ For sign up and sign in add corresponding methods getAuthApiSignupAttributes or/
         });
     });
 ```
-
-## .env options
-
-JWT_SECRET
-JWT_TTL
-JWT_REFRESH_TTL
-JWT_ALGO
-JWT_USER_CLASS
-JWT_IDENTIFIER
-JWT_BLACKLIST_ENABLED
-JWT_PROVIDERS_USER
-JWT_PROVIDERS_JWT
-JWT_PROVIDERS_AUTH
-JWT_PROVIDERS_STORAGE
-
-See config/config.php file for default values.
