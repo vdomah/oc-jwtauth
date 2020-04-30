@@ -14,7 +14,7 @@ class JWTAuthServiceProvider extends \Tymon\JWTAuth\Providers\JWTAuthServiceProv
      */
     protected function config($key, $default = null)
     {
-        $val = Settings::get('secret');
+        $val = Settings::get($key);
 
         if (!$val)
             $val = Config::get('vdomah.jwtauth::' . $key);

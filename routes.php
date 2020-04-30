@@ -7,7 +7,8 @@ Route::group(['prefix' => 'api'], function() {
 
     Route::any('login', function (Request $request) {
         $login_fields = Settings::get('login_fields', ['email', 'password']);
-        $credentials = $request->only($login_fields);
+
+        $credentials = Input::only($login_fields);
 
         try {
             // verify the credentials and create a token for the user
@@ -69,9 +70,9 @@ Route::group(['prefix' => 'api'], function() {
         return response()->json('token_invalidated');
     });
 
-    Route::post('/signup', function (Request $request) {
+    Route::post('signup', function (Request $request) {
         $login_fields = Settings::get('signup_fields', ['email', 'password', 'password_confirmation']);
-        $credentials = $request->only($login_fields);
+        $credentials = Input::only($login_fields);
 
         try {
             $userModel = UserModel::create($credentials);
