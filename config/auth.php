@@ -11,8 +11,8 @@ return [
     |
     */
     'defaults' => [
-        'guard' => 'web',
-        'passwords' => 'users',
+        'guard' => env('AUTH_DEFAULT_GUARD', 'web'),
+        'passwords' => env('AUTH_DEFAULT_PASSWORDS', 'users'),
     ],
     /*
     |--------------------------------------------------------------------------
@@ -32,12 +32,12 @@ return [
     */
     'guards' => [
         'web' => [
-            'driver' => 'session',
-            'provider' => 'users',
+            'driver' => env('AUTH_GUARDS_WEB_DRIVER', 'session'),
+            'provider' => env('AUTH_GUARDS_WEB_PROVIDER', 'users'),
         ],
         'api' => [
-            'driver' => 'token',
-            'provider' => 'users',
+            'driver' => env('AUTH_GUARDS_API_DRIVER', 'token'),
+            'provider' => env('AUTH_GUARDS_API_PROVIDER', 'users'),
         ],
     ],
     /*
@@ -58,8 +58,8 @@ return [
     */
     'providers' => [
         'users' => [
-            'driver' => 'eloquent',
-            'model' => RainLab\User\Models\User::class,
+            'driver' => env('AUTH_PROVIDERS_USERS_DRIVER', 'eloquent'),
+            'model' => env('AUTH_PROVIDERS_USERS_MODEL', '\RainLab\User\Models\User'),
         ],
     ],
     /*
@@ -82,10 +82,10 @@ return [
     */
     'passwords' => [
         'users' => [
-            'provider' => 'users',
-            'email' => 'auth.emails.password',
-            'table' => 'password_resets',
-            'expire' => 60,
+            'provider' => env('AUTH_PASSWORDS_USERS_PROVIDER', 'users'),
+            'email' => env('AUTH_PASSWORDS_USERS_EMAIL', 'auth.emails.password'),
+            'table' => env('AUTH_PASSWORDS_USERS_TABLE', 'password_resets'),
+            'expire' => env('AUTH_PASSWORDS_USERS_EXPIRE', 60),
         ],
     ],
 ];

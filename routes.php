@@ -5,7 +5,7 @@ use Vdomah\JWTAuth\Models\Settings;
 
 Route::group(['prefix' => 'api'], function() {
 
-    Route::any('login', function (Request $request) {
+    Route::post('login', function (Request $request) {
         $login_fields = Settings::get('login_fields', ['email', 'password']);
 
         $credentials = Input::only($login_fields);

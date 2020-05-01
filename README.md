@@ -10,7 +10,9 @@ RainLab.User plugin
 
 ### Installation
 
-1. After plugin installation you need to copy /plugins/vdomah/jwtauth/config/auth.php to {root}/config/auth.php, otherwise you'll got an error.
+1. [NOT REQUIRED ANY MORE] After plugin installation you need to copy /plugins/vdomah/jwtauth/config/auth.php to {root}/config/auth.php.
+If you want to change parameters values of auth.php you can use environment variables  in .env (see "Environment options" section).
+{root}/config/auth.php is still supported and got priority highest then /plugins/vdomah/jwtauth/config/auth.php.
 
 2. Generate JWT Authentication Secret. It will be used to sign your tokens. You got 2 options:
     - generate using command line: 
@@ -19,7 +21,7 @@ RainLab.User plugin
         ````
         You need to assign the generated value to JWT_SECRET in your .env.
     - go to Backend > Settings > JWTauth settings and click Generate Secret Key and save. 
-    This value will override JWT_SECRET value from .env.
+    This value has the highest priority and will override JWT_SECRET value from .env.
 
 ## Endpoints 
 
@@ -45,8 +47,9 @@ The plugin provides 4 endpoints:
     Tries to invalidate the given token - this can be used as an extra precaution to log the user out.
     By default expects 1 parameter: token. 
 
-## .env options
-
+## Environment options
+You're free to define any of this option in your project root .env.
+### JWT config
 | Variable        | Default           |
 | ------------- |:-------------:|
 | JWT_SECRET      |  |
@@ -61,8 +64,21 @@ The plugin provides 4 endpoints:
 | JWT_PROVIDERS_AUTH | Tymon\JWTAuth\Providers\Auth\IlluminateAuthAdapter |
 | JWT_PROVIDERS_STORAGE | Tymon\JWTAuth\Providers\Storage\IlluminateCacheAdapter |
 
-
-See config/config.php file for default values.
+### Laravel auth config
+| Variable        | Default           |
+| ------------- |:-------------:|
+| AUTH_DEFAULT_GUARD      | web |
+| AUTH_DEFAULT_PASSWORDS      | users |
+| AUTH_GUARDS_WEB_DRIVER      | session |
+| AUTH_GUARDS_WEB_PROVIDER      | users |
+| AUTH_GUARDS_API_DRIVER      | token |
+| AUTH_GUARDS_API_PROVIDER      | users |
+| AUTH_PROVIDERS_USERS_DRIVER      | eloquent |
+| AUTH_PROVIDERS_USERS_MODEL      | \RainLab\User\Models\User |
+| AUTH_PASSWORDS_USERS_PROVIDER      | users |
+| AUTH_PASSWORDS_USERS_EMAIL      | auth.emails.password |
+| AUTH_PASSWORDS_USERS_TABLE      | password_resets |
+| AUTH_PASSWORDS_USERS_EXPIRE      | 60 |
 
 ## Extending
 

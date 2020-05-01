@@ -1,5 +1,6 @@
 <?php namespace Vdomah\JWTAuth;
 
+use Config;
 use RainLab\User\Models\User;
 use System\Classes\PluginBase;
 use App;
@@ -35,6 +36,10 @@ class Plugin extends PluginBase
 
     public function boot()
     {
+        if (empty(Config::get('auth'))) {
+            Config::set('auth', Config::get('vdomah.jwtauth::auth'));
+        }
+
         $this->app->bind(\Illuminate\Auth\AuthManager::class, function($app){
             return new \Illuminate\Auth\AuthManager($app);
         });
