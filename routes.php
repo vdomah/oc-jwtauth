@@ -6,6 +6,9 @@ use Vdomah\JWTAuth\Models\Settings;
 Route::group(['prefix' => 'api'], function() {
 
     Route::post('login', function (Request $request) {
+        if (Settings::get('is_login_disabled'))
+            App::abort(404, 'Page not found');
+
         $login_fields = Settings::get('login_fields', ['email', 'password']);
 
         $credentials = Input::only($login_fields);
@@ -39,6 +42,9 @@ Route::group(['prefix' => 'api'], function() {
     });
 
     Route::post('refresh', function (Request $request) {
+        if (Settings::get('is_refresh_disabled'))
+            App::abort(404, 'Page not found');
+
         $token = Request::get('token');
 
         try {
@@ -56,6 +62,9 @@ Route::group(['prefix' => 'api'], function() {
     });
 
     Route::post('invalidate', function (Request $request) {
+        if (Settings::get('is_invalidate_disabled'))
+            App::abort(404, 'Page not found');
+
         $token = Request::get('token');
 
         try {
@@ -71,6 +80,9 @@ Route::group(['prefix' => 'api'], function() {
     });
 
     Route::post('signup', function (Request $request) {
+        if (Settings::get('is_signup_disabled'))
+            App::abort(404, 'Page not found');
+
         $login_fields = Settings::get('signup_fields', ['email', 'password', 'password_confirmation']);
         $credentials = Input::only($login_fields);
 

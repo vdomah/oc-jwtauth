@@ -11,6 +11,11 @@
         'signup_fields_comment' => 'Defaults are email, password, password_confirmation',
         'login_fields' => 'Login Fields',
         'login_fields_comment' => 'Defaults are email, password',
+        'section_routes_disable' => 'Disable routes',
+        'is_login_disabled' => 'Login route disabled',
+        'is_signup_disabled' => 'Signup route disabled',
+        'is_refresh_disabled' => 'Refresh route disabled',
+        'is_invalidate_disabled' => 'Invalidate route disabled',
     ],
     'settings' => [
         'page_name' => 'JWTauth settings',

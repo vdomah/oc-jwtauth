@@ -22,3 +22,5 @@
     - Backend settings to set secret key, signup/login configurable request params.
 1.0.11:
     - !!! auth.php copying to root/config/ is not required any more. .env options support added to override auth.php and config.php
+1.0.12:
+  - Possibility to disable each endpoint in backend settings

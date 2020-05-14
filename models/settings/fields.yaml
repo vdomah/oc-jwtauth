@@ -21,3 +21,28 @@ fields:
     type: taglist
     mode: array
     comment: 'vdomah.jwtauth::lang.fields.login_fields_comment'
+
+  section_routes_disable:
+    label: 'vdomah.jwtauth::lang.fields.section_routes_disable'
+    span: full
+    type: section
+  is_login_disabled:
+    label: 'vdomah.jwtauth::lang.fields.is_login_disabled'
+    span: auto
+    type: checkbox
+    default: true
+  is_signup_disabled:
+    label: 'vdomah.jwtauth::lang.fields.is_signup_disabled'
+    span: auto
+    type: checkbox
+    default: true
+  is_refresh_disabled:
+    label: 'vdomah.jwtauth::lang.fields.is_refresh_disabled'
+    span: auto
+    type: checkbox
+    default: true
+  is_invalidate_disabled:
+    label: 'vdomah.jwtauth::lang.fields.is_invalidate_disabled'
+    span: auto
+    type: checkbox
+    default: true
