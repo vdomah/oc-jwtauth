@@ -9,9 +9,12 @@ Route::group(['prefix' => 'api'], function() {
         if (Settings::get('is_login_disabled'))
             App::abort(404, 'Page not found');
 
-        $login_fields = Settings::get('login_fields', ['email', 'password']);
+        $arFields = Settings::get('login_fields');
+        if (!is_array($arFields) || empty($arFields)) {
+            $arFields = ['email', 'password', 'password_confirmation'];
+        }
 
-        $credentials = Input::only($login_fields);
+        $credentials = Input::only($arFields);
 
         try {
             // verify the credentials and create a token for the user
@@ -83,8 +86,12 @@ Route::group(['prefix' => 'api'], function() {
         if (Settings::get('is_signup_disabled'))
             App::abort(404, 'Page not found');
 
-        $login_fields = Settings::get('signup_fields', ['email', 'password', 'password_confirmation']);
-        $credentials = Input::only($login_fields);
+        $arFields = Settings::get('signup_fields');
+        if (!is_array($arFields) || empty($arFields)) {
+            $arFields = ['email', 'password', 'password_confirmation'];
+        }
+
+        $credentials = Input::only($arFields);
 
         try {
             $userModel = UserModel::create($credentials);
