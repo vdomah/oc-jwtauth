@@ -17,10 +17,10 @@
 1.0.8:
     - JWT Authentication Secret default value removed from config file. README updated about how to generate the secret.
 1.0.9:
-    - !!! Generate JWT Authentication Secret using php artisan jwt:generate and assign generated value to JWT_SECRET in .env
+    - Generate JWT Authentication Secret using php artisan jwt:generate and assign generated value to JWT_SECRET in .env
 1.0.10:
     - Backend settings to set secret key, signup/login configurable request params.
 1.0.11:
-    - !!! auth.php copying to root/config/ is not required any more. .env options support added to override auth.php and config.php
+    - auth.php copying to root/config/ is not required any more. .env options support added to override auth.php and config.php
 1.0.12:
   - Possibility to disable each endpoint in backend settings
